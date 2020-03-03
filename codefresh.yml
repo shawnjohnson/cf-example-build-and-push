@@ -8,8 +8,8 @@ steps:
     title: Cloning main repository...
     type: git-clone
     stage: checkout
-    repo: ${{CF_REPO_NAME}}
-    revision: 'master'
+    repo: '${{CF_REPO_OWNER}}/${{CF_REPO_NAME}}'
+    revision: '${{CF_REVISION}}'
     git: github
   build_my_app:
     title: Building Node.Js Docker Image
