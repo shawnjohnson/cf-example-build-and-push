@@ -8,7 +8,7 @@ steps:
     title: Cloning main repository...
     type: git-clone
     stage: checkout
-    repo: 'codefreshdemo/cf-example-build-and-push'
+    repo: ${{CF_REPO_NAME}}
     revision: 'master'
     git: github
   build_my_app:
@@ -19,11 +19,11 @@ steps:
     working_directory: '.'
     tag: 'master'
     dockerfile: Dockerfile
-  push_to_my_registry:
-    stage: 'push'
-    type: push
-    title: Pushing to a registry
-    candidate: ${{build_my_app}}
-    tag: 'v1.0.0'
-    registry: dockerhub
-    image_name: kkapelon/my-node-js-app
+#   push_to_my_registry:
+#     stage: 'push'
+#     type: push
+#     title: Pushing to a registry
+#     candidate: ${{build_my_app}}
+#     tag: 'v1.0.0'
+#     registry: dockerhub
+#     image_name: kkapelon/my-node-js-app
